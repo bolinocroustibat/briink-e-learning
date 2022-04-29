@@ -1,0 +1,32 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+briink-app/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+briink-app/.next/
+/out/
+
+# production
+briink-app/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+briink-app/npm-debug.log*
+briink-app/yarn-debug.log*
+briink-app/yarn-error.log*
+briink-app/.pnpm-debug.log*
+
+# local env files
+.env*.local
+
+# vercel
+briink-app/.vercel
