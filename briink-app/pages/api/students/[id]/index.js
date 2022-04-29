@@ -1,8 +1,8 @@
-import { students } from '../../../data/students.js'
+import { students } from '../../../../data/students.js'
 
 export default function studentHandler(req, res) {
   const {
-    query: { id, name },
+    query: { id },
     method,
   } = req
 

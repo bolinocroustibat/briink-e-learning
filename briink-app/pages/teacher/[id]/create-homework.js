@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
-import Layout from '../../components/layout'
+import Layout from '../../../components/layout'
 
 
 export default function CreateHomework () {
@@ -13,7 +13,7 @@ export default function CreateHomework () {
       <h1 className={styles.title}>Create homework</h1>
       <h2>
         <Link href='/'>
-          <a>Back to teacher's home</a>
+          <a>Back to teacher&apos;s home</a>
         </Link>
       </h2>
     </Layout>

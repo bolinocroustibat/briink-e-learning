@@ -1,8 +1,8 @@
-import { teachers } from '../../../data/teachers.js'
+import { teachers } from '../../../../data/teachers.js'
 
 export default function teacherHandler(req, res) {
   const {
-    query: { id, name },
+    query: { id },
     method,
   } = req
 

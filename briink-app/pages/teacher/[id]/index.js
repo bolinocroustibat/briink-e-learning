@@ -11,7 +11,7 @@ export default function TeacherIndex () {
 
   const router = useRouter()
   const { data, error } = useSwr(
-    router.query.id ? `/api/teacher/${router.query.id}` : null,
+    router.query.id ? `/api/teachers/${router.query.id}` : null,
     fetcher
   )
   if (error) return <div>Failed to load teacher</div>

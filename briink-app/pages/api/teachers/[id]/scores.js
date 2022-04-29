@@ -1,4 +1,4 @@
-import { teachers } from '../../../data/teachers.js'
+import { teachers } from '../../../../data/teachers.js'
 
 export default function teacherScoreHandler(req, res) {
   const {

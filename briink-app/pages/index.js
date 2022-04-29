@@ -22,14 +22,14 @@ export default function Home () {
         </h1>
 
         <div className={styles.grid}>
-          <a href='student' className={styles.card}>
+          <a href='students' className={styles.card}>
             <h2>Student &rarr;</h2>
-            <p>I'm a student</p>
+            <p>I&apos;m a student</p>
           </a>
 
-          <a href='teacher' className={styles.card}>
+          <a href='teachers' className={styles.card}>
             <h2>Teacher &rarr;</h2>
-            <p>I'm a teacher</p>
+            <p>I&apos;m a teacher</p>
           </a>
 
         </div>

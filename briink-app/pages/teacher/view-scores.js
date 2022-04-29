@@ -8,10 +8,10 @@ export default function ViewScores () {
       <Head>
         <title>View scores</title>
       </Head>
-      <h1 className={styles.title}>View your student's scores</h1>
+      <h1 className={styles.title}>View your student&apos;s scores</h1>
       <h2>
         <Link href='/'>
-          <a>Back to teacher's home</a>
+          <a>Back to teacher&apos;s home</a>
         </Link>
       </h2>
     </>
