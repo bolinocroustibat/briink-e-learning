@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# project-specific overrides
+briink-app/data/uploads
+
 # dependencies
 briink-app/node_modules
 /.pnp
