@@ -8,8 +8,9 @@ const fetcher = url => fetch(url).then(res => res.json())
 
 export default function TeacherIndexPage () {
   const router = useRouter()
+  const { id: teacherId } = router.query
   const { data: teacher, error: teacherEndpointerror } = useSwr(
-    router.query.id ? `/api/teachers/${router.query.id}` : null,
+    teacherId ? `/api/teachers/${teacherId}` : null,
     fetcher
   )
   if (teacherEndpointerror) return <div>Failed to load teacher</div>
@@ -18,7 +19,7 @@ export default function TeacherIndexPage () {
   return (
     <Layout>
       <Head>
-        <title>Teacher homepage</title>
+        <title>{teacher.name} teacher homepage</title>
       </Head>
       <h1>Welcome, {teacher.name}!</h1>
       <nav>
@@ -27,7 +28,7 @@ export default function TeacherIndexPage () {
             <Link
               href={{
                 pathname: '/teacher/[id]/homeworks',
-                query: { id: teacher.id }
+                query: { id: teacherId }
               }}
             >
               <a>My created homeworks</a>
@@ -37,7 +38,7 @@ export default function TeacherIndexPage () {
             <Link
               href={{
                 pathname: '/teacher/[id]/create-homework',
-                query: { id: teacher.id }
+                query: { id: teacherId }
               }}
             >
               <a>Create a new homework</a>

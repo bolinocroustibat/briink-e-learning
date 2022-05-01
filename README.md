@@ -55,6 +55,8 @@ The backend part is a classical REST API with the followinf endpoint
 
 This app is a demo to show the REST organisation and some basic frontend navigation proposal. Here is the list of things to do:
 
+- Rewrite in Typescript
+
 - Database
     - Create the database and its architectures, with the tables:
     - students
@@ -67,7 +69,7 @@ Can use an ORM like Prisma
 
 - Create frontend data models, mapped on the DB architecture/tables
 
-- Separate pages into React reusable components
+- Split pages into React reusable components, for example for the navigation bar/breadcrumb component
 
 - Authentication
 All the endpoints must be protected with propre authentication.

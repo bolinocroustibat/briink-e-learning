@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout from '../../../components/layout'
 import { useRouter } from 'next/router'
 import useSwr from 'swr'
+import Layout from '../../../components/layout'
+import ScoresComponent from './components/scores'
 
 const fetcher = url => fetch(url).then(res => res.json())
 
@@ -16,20 +17,25 @@ export default function TeacherHomeworksPage () {
   if (homeworkEndpointError) return <div>Failed to load homeworks</div>
   if (!homeworks) return <div>Loading homeworks...</div>
 
+  function getTeacherHomeworksList () {
+    if (homeworks.length == 0) {
+      return <p>Yay, no homework!</p>
+    }
+    return homeworks.map(homework => (
+      <li key={homework.id}>
+        <h4>{homework.title}</h4>
+        <ScoresComponent homeworkId={homework.id}></ScoresComponent>
+      </li>
+    ))
+  }
+
   return (
     <Layout>
       <Head>
         <title>Teacher homeworks</title>
       </Head>
       <h2>My homeworks</h2>
-      <ul>
-        {homeworks.map(homework => (
-          <li key={homework.id}>
-            <h4>{homework.title}</h4>
-            <p>{homework.question}</p>
-          </li>
-        ))}
-      </ul>
+      <ul>{getTeacherHomeworksList()}</ul>
       <nav>
         <ul>
           <li>

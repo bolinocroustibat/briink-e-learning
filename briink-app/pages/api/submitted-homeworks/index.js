@@ -3,6 +3,7 @@ import fs from 'fs'
 import mkpath from 'mkpath'
 
 import { homeworks } from '../../../data/homeworks.js'
+import { students } from '../../../data/students'
 import { submittedHomeworks } from '../../../data/submitted-homeworks'
 
 export const config = {
@@ -46,7 +47,24 @@ const saveFile = async (file, homeworkId, studentId) => {
 
 export default function submittedHomeworksHandler (req, res) {
   if (req.method === 'GET') {
-    // TODO
+    if (req.query.homeworkId) {
+      const homeworkId = req.query.homeworkId
+      const filteredSubmittedHomeworks = submittedHomeworks.filter(
+        submittedHomework =>
+          submittedHomework.homeworkId === parseInt(homeworkId)
+      )
+      // Add student info to each submittedHomework
+      filteredSubmittedHomeworks.forEach(sh => {
+        const student = students.find(
+          student => student.id === parseInt(sh.studentId)
+        )
+        sh.student = student
+      })
+      res.status(200).json(filteredSubmittedHomeworks)
+    }
+    res
+      .status(405)
+      .end(`Need a homework ID to read related submitted homeworks.`)
   } else if (req.method === 'POST') {
     post(req, res)
   } else {

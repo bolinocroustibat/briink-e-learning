@@ -1,6 +1,6 @@
-import Layout from '../../../../components/layout'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import Layout from '../../../../components/layout'
 
 export default function SubmitHomeworkComponent (props) {
   const router = useRouter()

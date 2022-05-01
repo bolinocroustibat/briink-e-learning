@@ -18,7 +18,7 @@ export default function StudentsHomeworksPage () {
   if (homeworkEndpointError) return <div>Failed to load homeworks</div>
   if (!homeworks) return <div>Loading homeworks...</div>
 
-  function getHomeworksList () {
+  function getStudentHomeworksList () {
     if (homeworks.length == 0) {
       return <p>Yay, no homework!</p>
     }
@@ -39,7 +39,7 @@ export default function StudentsHomeworksPage () {
         <title>Student homeworks</title>
       </Head>
       <h2>My homeworks</h2>
-      <ul>{getHomeworksList()}</ul>
+      <ul>{getStudentHomeworksList()}</ul>
       <nav>
         <ul>
           <li>

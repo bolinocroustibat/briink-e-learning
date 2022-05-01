@@ -8,8 +8,9 @@ const fetcher = url => fetch(url).then(res => res.json())
 
 export default function StudentIndexPage () {
   const router = useRouter()
-  const { data, error } = useSwr(
-    router.query.id ? `/api/students/${router.query.id}` : null,
+  const { id: studentId } = router.query
+  const { data: student, error } = useSwr(
+    studentId ? `/api/students/${studentId}` : null,
     fetcher
   )
   if (error) return <div>Failed to load student</div>
@@ -18,16 +19,16 @@ export default function StudentIndexPage () {
   return (
     <Layout>
       <Head>
-        <title>Student homepage</title>
+        <title>{student.name} student homepage</title>
       </Head>
-      <h1>Welcome, {data.name}!</h1>
+      <h1>Welcome, {student.name}!</h1>
       <nav>
         <ul>
           <li>
             <Link
               href={{
                 pathname: '/student/[id]/homeworks',
-                query: { id: data.id }
+                query: { id: studentId }
               }}
             >
               <a>My homeworks</a>

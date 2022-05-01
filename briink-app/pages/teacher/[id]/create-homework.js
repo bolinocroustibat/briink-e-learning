@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 
 export default function TeacherHomeworksCreatePage () {
   const router = useRouter()
+  const { id: teacherId } = router.query
 
   // Overrides the submit event on form submit
   const handleSubmit = async event => {
@@ -12,7 +13,7 @@ export default function TeacherHomeworksCreatePage () {
     const data = {
       title: event.target.title.value,
       question: event.target.question.value,
-      teacherId: router.query.id
+      teacherId: teacherId
     }
     const endpoint = '/api/homeworks'
     const options = {
@@ -24,7 +25,7 @@ export default function TeacherHomeworksCreatePage () {
     }
     const response = await fetch(endpoint, options)
     if (response.status === 201) {
-      router.push(`/teacher/${router.query.id}`)
+      router.push(`/teacher/${teacherId}`)
     }
   }
 
@@ -72,7 +73,7 @@ export default function TeacherHomeworksCreatePage () {
             <Link
               href={{
                 pathname: '/teacher/[id]',
-                query: { id: router.query.id }
+                query: { id: teacherId }
               }}
             >
               <a>Go back to my home</a>
