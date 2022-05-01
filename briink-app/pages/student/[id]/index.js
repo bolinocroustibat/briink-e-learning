@@ -26,6 +26,16 @@ export default function StudentIndex () {
           <li>
             <Link
               href={{
+                pathname: '/student/[id]/homeworks',
+                query: { id: data.id }
+              }}
+            >
+              <a>View my homeworks</a>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={{
                 pathname: '/student/[id]/submit-homework',
                 query: { id: data.id }
               }}

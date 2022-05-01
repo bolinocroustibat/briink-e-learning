@@ -23,11 +23,13 @@ export default function SubmitHomework (props) {
     const formData = new FormData()
     formData.append('file', file)
     formData.set('studentId', id)
-    formData.set('homeworkId', props.homeworkId)
-    const response = await fetch(`/api/students/${id}/submit-homework`, {
+    // formData.set('homeworkId', props.homeworkId)
+    const endpoint = `/api/students/${id}/submit-homework`
+    const options = {
       method: 'POST',
       body: formData
-    })
+    }
+    const response = await fetch(endpoint, options)
     if (response.status === 201) {
       router.push(`/student/${id}`)
     }

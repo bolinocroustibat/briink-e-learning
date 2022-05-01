@@ -6,13 +6,36 @@ import useSwr from 'swr'
 
 export default function TeacherHomeworksCreate () {
   const router = useRouter()
+
+  // Overrides the submit event on form submit
+  const handleSubmit = async event => {
+    event.preventDefault() // Stop the form from submitting and refreshing the page
+    const data = {
+      title: event.target.title.value,
+      question: event.target.question.value,
+      teacherId: router.query.id
+    }
+    const endpoint = '/api/homeworks'
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }
+    const response = await fetch(endpoint, options)
+    if (response.status === 201) {
+      router.push(`/teacher/${router.query.id}`)
+    }
+  }
+
   return (
     <Layout>
       <Head>
         <title>Create homework</title>
       </Head>
       <h1>Create homework</h1>
-      <form action='/api/homeworks' method='POST'>
+      <form onSubmit={handleSubmit}>
         <label for='title'>Homework title:</label>
         <input
           type='text'
@@ -31,7 +54,6 @@ export default function TeacherHomeworksCreate () {
           minlength='5'
           maxlength='200'
         />
-        <input type='hidden' name='teacherId' value={router.query.id} />
         <button type='submit'>Submit</button>
       </form>
       <nav>
