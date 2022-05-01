@@ -16,7 +16,7 @@ export default function StudentsList () {
       <ul>
         {data.map(student => (
           <li key={student.id}>
-            I'm{' '}
+            I&apos;m{' '}
             <Link href='/student/[id]' as={`/student/${student.id}`}>
               <a>{student.name}</a>
             </Link>

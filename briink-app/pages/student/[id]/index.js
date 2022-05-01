@@ -9,12 +9,12 @@ const fetcher = url => fetch(url).then(res => res.json())
 export default function StudentIndexPage () {
   const router = useRouter()
   const { id: studentId } = router.query
-  const { data: student, error } = useSwr(
+  const { data: student, studentEndpointError } = useSwr(
     studentId ? `/api/students/${studentId}` : null,
     fetcher
   )
-  if (error) return <div>Failed to load student</div>
-  if (!data) return <div>Loading...</div>
+  if (studentEndpointError) return <div>Failed to load student</div>
+  if (!student) return <div>Loading...</div>
 
   return (
     <Layout>

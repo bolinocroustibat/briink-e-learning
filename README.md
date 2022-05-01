@@ -25,13 +25,18 @@ docker build -t briink-app .
 ```
 
 Run the container:
-
 ```bash
 docker run -p 3000:3000 briink-app
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Build for production
+
+To build for production using NPM, use the following command:
+```bash
+npm run build && npm install --omit=dev --ignore-scripts --prefer-offline
+```
 
 ## Data
 

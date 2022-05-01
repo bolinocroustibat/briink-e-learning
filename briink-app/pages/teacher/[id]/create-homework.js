@@ -37,29 +37,29 @@ export default function TeacherHomeworksCreatePage () {
       <h1>Create homework</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label for='title'>Homework title:</label>
+          <label htmlFor='title'>Homework title:</label>
           <input
             type='text'
             id='title'
             name='title'
             required
-            minlength='5'
-            maxlength='50'
+            minLength='5'
+            maxLength='50'
           />
         </div>
         <div>
-          <label for='question'>Homework question:</label>
+          <label htmlFor='question'>Homework question:</label>
           <input
             type='text'
             id='question'
             name='question'
             required
-            minlength='5'
-            maxlength='200'
+            minLength='5'
+            maxLength='200'
           />
         </div>
         <div>
-          <label for='scoringSystem'>Scoring system</label>
+          <label htmlFor='scoringSystem'>Scoring system</label>
           <select name='scoringSystem' id='scoringSystem'>
             <option value='1'>Easy</option>
             <option value='2'>Hard</option>

@@ -16,7 +16,7 @@ export default function TeachersList () {
       <ul>
         {data.map(teacher => (
           <li key={teacher.id}>
-            I'm{' '}
+            I&apos;m{' '}
             <Link href='/teacher/[id]' as={`/teacher/${teacher.id}`}>
               <a>{teacher.name}</a>
             </Link>

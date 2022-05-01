@@ -9,11 +9,11 @@ const fetcher = url => fetch(url).then(res => res.json())
 export default function TeacherIndexPage () {
   const router = useRouter()
   const { id: teacherId } = router.query
-  const { data: teacher, error: teacherEndpointerror } = useSwr(
+  const { data: teacher, error: teacherEndpointError } = useSwr(
     teacherId ? `/api/teachers/${teacherId}` : null,
     fetcher
   )
-  if (teacherEndpointerror) return <div>Failed to load teacher</div>
+  if (teacherEndpointError) return <div>Failed to load teacher</div>
   if (!teacher) return <div>Loading teacher information...</div>
 
   return (

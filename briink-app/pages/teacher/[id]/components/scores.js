@@ -25,17 +25,19 @@ export default function ScoresComponent (props) {
     }
   }
 
-  function getScoreList (submittedHomework) {
+  function buildScoreListForSubmittedHomework (submittedHomework) {
     if (submittedHomework.status == 'scored') {
-      return submittedHomework.scores.map(score => {
-        return (
-          <ul>
-            <li key={score.id}>
-              {Object.keys(score)[0]}: {Object.values(score)[0]}
-            </li>
-          </ul>
-        )
-      })
+      return (
+        <ul>
+          {submittedHomework.scores.map(score => {
+            return (
+              <li key={Object.keys(score)[0]}>
+                {Object.keys(score)[0]}: {Object.values(score)[0]}
+              </li>
+            )
+          })}
+        </ul>
+      )
     }
     return null
   }
@@ -47,7 +49,7 @@ export default function ScoresComponent (props) {
           <li key={submittedHomework.id}>
             <p>Student: {submittedHomework.student.name}</p>
             <p>Status: {rewriteStatus(submittedHomework.status)}</p>
-            {getScoreList(submittedHomework)}
+            {buildScoreListForSubmittedHomework(submittedHomework)}
           </li>
         ))}
       </ul>
