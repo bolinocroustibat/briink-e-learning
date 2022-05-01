@@ -6,7 +6,7 @@ import useSwr from 'swr'
 
 const fetcher = url => fetch(url).then(res => res.json())
 
-export default function StudentIndex () {
+export default function StudentIndexPage () {
   const router = useRouter()
   const { data, error } = useSwr(
     router.query.id ? `/api/students/${router.query.id}` : null,
@@ -30,17 +30,7 @@ export default function StudentIndex () {
                 query: { id: data.id }
               }}
             >
-              <a>View my homeworks</a>
-            </Link>
-          </li>
-          <li>
-            <Link
-              href={{
-                pathname: '/student/[id]/submit-homework',
-                query: { id: data.id }
-              }}
-            >
-              <a>Submit a homework</a>
+              <a>My homeworks</a>
             </Link>
           </li>
         </ul>

@@ -4,7 +4,7 @@ import Layout from '../../../components/layout'
 
 import styles from '../../styles/Home.module.css'
 
-export default function ViewScores () {
+export default function ViewScoresPage () {
   return (
     <Layout>
       <Head>

@@ -6,12 +6,11 @@ import useSwr from 'swr'
 
 const fetcher = url => fetch(url).then(res => res.json())
 
-export default function TeacherHomeworksView () {
+export default function TeacherHomeworksPage () {
   const router = useRouter()
+  const { id: teacherId } = router.query
   const { data: homeworks, error: homeworkEndpointError } = useSwr(
-    router.query.id
-      ? `/api/homeworks?teacherId=${router.query.id}`
-      : `/api/homeworks`,
+    teacherId ? `/api/homeworks?teacherId=${teacherId}` : `/api/homeworks`,
     fetcher
   )
   if (homeworkEndpointError) return <div>Failed to load homeworks</div>
@@ -37,7 +36,7 @@ export default function TeacherHomeworksView () {
             <Link
               href={{
                 pathname: '/teacher/[id]',
-                query: { id: router.query.id }
+                query: { id: teacherId }
               }}
             >
               <a>Go back to my home</a>

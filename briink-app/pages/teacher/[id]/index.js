@@ -6,7 +6,7 @@ import useSwr from 'swr'
 
 const fetcher = url => fetch(url).then(res => res.json())
 
-export default function TeacherIndex () {
+export default function TeacherIndexPage () {
   const router = useRouter()
   const { data: teacher, error: teacherEndpointerror } = useSwr(
     router.query.id ? `/api/teachers/${router.query.id}` : null,
@@ -26,7 +26,7 @@ export default function TeacherIndex () {
           <li>
             <Link
               href={{
-                pathname: '/teacher/[id]/view-homeworks',
+                pathname: '/teacher/[id]/homeworks',
                 query: { id: teacher.id }
               }}
             >

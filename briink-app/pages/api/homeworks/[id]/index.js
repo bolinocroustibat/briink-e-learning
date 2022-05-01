@@ -1,6 +1,6 @@
 import { homeworks } from '../../../../data/homeworks.js'
 
-export default function studentHandler (req, res) {
+export default function homeworkHandler (req, res) {
   const {
     query: { id },
     method

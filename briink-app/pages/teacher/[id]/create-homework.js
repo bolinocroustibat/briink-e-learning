@@ -2,9 +2,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Layout from '../../../components/layout'
 import { useRouter } from 'next/router'
-import useSwr from 'swr'
 
-export default function TeacherHomeworksCreate () {
+export default function TeacherHomeworksCreatePage () {
   const router = useRouter()
 
   // Overrides the submit event on form submit
@@ -36,24 +35,35 @@ export default function TeacherHomeworksCreate () {
       </Head>
       <h1>Create homework</h1>
       <form onSubmit={handleSubmit}>
-        <label for='title'>Homework title:</label>
-        <input
-          type='text'
-          id='title'
-          name='title'
-          required
-          minlength='5'
-          maxlength='50'
-        />
-        <label for='question'>Homework question:</label>
-        <input
-          type='text'
-          id='question'
-          name='question'
-          required
-          minlength='5'
-          maxlength='200'
-        />
+        <div>
+          <label for='title'>Homework title:</label>
+          <input
+            type='text'
+            id='title'
+            name='title'
+            required
+            minlength='5'
+            maxlength='50'
+          />
+        </div>
+        <div>
+          <label for='question'>Homework question:</label>
+          <input
+            type='text'
+            id='question'
+            name='question'
+            required
+            minlength='5'
+            maxlength='200'
+          />
+        </div>
+        <div>
+          <label for='scoringSystem'>Scoring system</label>
+          <select name='scoringSystem' id='scoringSystem'>
+            <option value='1'>Easy</option>
+            <option value='2'>Hard</option>
+          </select>
+        </div>
         <button type='submit'>Submit</button>
       </form>
       <nav>

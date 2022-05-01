@@ -31,7 +31,7 @@ export default function homeworksListHandler (req, res) {
       .end('You must be a teacher or a student to view homeworks.')
   } else if (req.method === 'POST') {
     const body = req.body
-    if (!body.title || !body.question || !body.teacherId) {
+    if (!body.title || !body.question || !body.teacherId || !body.scoringSystemId) {
       return res
         .status(400)
         .end('Homework title, question or related teacher not found.')
@@ -39,7 +39,8 @@ export default function homeworksListHandler (req, res) {
     const homework = {
       title: body.title,
       question: body.question,
-      teacherId: body.teacherId
+      teacherId: body.teacherId,
+      scoringSystemId: body.scoringSystemId
     }
     // TODO: Create the homework in the database
     res.status(201).json(homework)
