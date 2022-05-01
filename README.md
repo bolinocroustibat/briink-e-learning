@@ -10,6 +10,10 @@ The next step in the project roadmap are listed as in the [roadmap](##Roadmap) s
 
 ## Run locally
 
+Use one of the 3 methods below to run the app locally, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result and browse the test app.
+
+### ...without Docker
+
 To run the development server:
 
 ```bash
@@ -20,25 +24,27 @@ or
 make run
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Run inside a Docker container
+### ...inside a Docker container
 
 Run Docker.
 
 Build the image, if not done almready, from the Dockerfile with:
-
 ```bash
 docker build -t briink-app .
 ```
 
 Run the container:
-
 ```bash
 docker run -p 3000:3000 briink-app
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### ...using Docker Compose
+
+```bash
+docker-compose up -d
+```
 
 ## Build for production
 
@@ -127,7 +133,7 @@ A RDMS ORM like Primsa could be used to interact with the database from the Next
 
 - Create frontend data models, mapped on the DB architecture/tables.
 
-- Create a Docker Compose file to instanciate not only the app, but also the database and the service to score the submitted homeworks.
+- Ass the database and the service to score the submitted homeworks to the docker compose file.
 
 - Split pages into React reusable components, for example for the navigation bar/breadcrumb component.
 
