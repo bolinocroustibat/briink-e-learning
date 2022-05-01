@@ -7,8 +7,8 @@ services:
     container_name: briink-app
     restart: unless-stopped
     ports:
-      # port 3306 is the default port for mariadb, forwarded to 8889 on the local machine
-      - 3000:3000
+      # port 300 is the default port for nextjs, forwarded to 80 on the local machine
+      - 80:3000
 
   # postgres:
   #   image: postgres:14.2-alpine

@@ -10,7 +10,7 @@ The next step in the project roadmap are listed as in the [roadmap](##Roadmap) s
 
 ## Run locally
 
-Use one of the 3 methods below to run the app locally, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result and browse the test app.
+Use one of the 3 methods below to run the app locally:
 
 ### ...without Docker
 
@@ -23,6 +23,8 @@ or
 ```bash
 make run
 ```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result and browse the test app.
 
 ### ...inside a Docker container
 
@@ -38,13 +40,17 @@ Run the container:
 docker run -p 3000:3000 briink-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result and browse the test app.
 
 ### ...using Docker Compose
 
 ```bash
 docker-compose up -d
 ```
+
+Docker Compose will forward the app to the default HTTP port 80.
+
+Open [http://localhost](http://localhost) with your browser to see the result and browse the test app.
 
 ## Build for production
 
