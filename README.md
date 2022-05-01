@@ -8,18 +8,16 @@ The main purpose of this project is to show how to create a simple backend/front
 
 The next step in the project roadmap are listed as in the [roadmap](##Roadmap) section of this document, as well as TODO comments in the code.
 
-## Getting Started
-
-```bash
-cd briink-app
-```
-
 ## Run locally
 
 To run the development server:
 
 ```bash
-npm run dev
+cd briink-app && npm run dev
+```
+or
+```bash
+make run
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -47,7 +45,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 To build for production using NPM, use the following command:
 
 ```bash
-npm run build && npm install --omit=dev --ignore-scripts --prefer-offline
+cd briink-app && npm run build && npm install --omit=dev --ignore-scripts --prefer-offline
+```
+or
+```bash
+make build
 ```
 
 ## Data
@@ -115,7 +117,7 @@ Create the database and its architecture. As a first draft, the minimal DB table
 
 A SQL-based RDMS like PostgreSQL is a good choice for this, as well as a no-SQL system like MongoDB. If using SQL-based RDMS, each table should have an `id` primary key and an all-purpose `others` binary JSON field for scalability.
 
-A RDMS ORM like Primsa could be used to interact with the database from the NExt.js code.
+A RDMS ORM like Primsa could be used to interact with the database from the Next.js code.
 
 - Create authentication system and manage permissions:
   All the endpoints must be protected with proper authentication.
