@@ -1,47 +1,55 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../styles/Home.module.css'
+import Layout from '../../../components/layout'
 import { useRouter } from 'next/router'
 import useSwr from 'swr'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
-
+const fetcher = url => fetch(url).then(res => res.json())
 
 export default function TeacherIndex () {
-
   const router = useRouter()
-  const { data, error } = useSwr(
+  const { data: teacher, error: teacherEndpointerror } = useSwr(
     router.query.id ? `/api/teachers/${router.query.id}` : null,
     fetcher
   )
-  if (error) return <div>Failed to load teacher</div>
-  if (!data) return <div>Loading...</div>
+  if (teacherEndpointerror) return <div>Failed to load teacher</div>
+  if (!teacher) return <div>Loading teacher information...</div>
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>Teacher homepage</title>
       </Head>
-      <h1 className={styles.title}>Welcome, {data.name}!</h1>
-      <h2>
-        {' '}
-        Read{' '}
-        <Link href='/teacher/create-homework'>
-          <a>Create a homework</a>
-        </Link>
-      </h2>
-      <h2>
-        {' '}
-        Read{' '}
-        <Link href='/teacher/view-score'>
-          <a>Consult scores</a>
-        </Link>
-      </h2>
-      <h2>
-        <Link href='/'>
-          <a>Back to home</a>
-        </Link>
-      </h2>
-    </>
+      <h1>Welcome, {teacher.name}!</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link
+              href={{
+                pathname: '/teacher/[id]/view-homeworks',
+                query: { id: teacher.id }
+              }}
+            >
+              <a>My created homeworks</a>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={{
+                pathname: '/teacher/[id]/create-homework',
+                query: { id: teacher.id }
+              }}
+            >
+              <a>Create a new homework</a>
+            </Link>
+          </li>
+          <li>
+            <Link href='/'>
+              <a>Back to home</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </Layout>
   )
 }

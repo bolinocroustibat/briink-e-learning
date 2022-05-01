@@ -15,12 +15,14 @@ const post = async (req, res) => {
     const homeworkId = fields.homeworkId
     const localFilePath = await saveFile(files.file, studentId)
     const submissionDate = Date.now().toString()
-    // Create homeworkSubmitted object in the database and associate it with:
-    // - the student
-    // - the homework
-    // - the local file path of the submitted file
-    // - the submission date
-    return res.status(201).send('Homework sucessfully uploaded.')
+    const submittedHomework = {
+      homeworkId: homeworkId,
+      studentId: studentId,
+      submissionDate: submissionDate,
+      file: localFilePath
+    }
+    // TODO: create the `homeworkSubmitted` object in the database
+    return res.status(201).json(submittedHomework)
   })
 }
 

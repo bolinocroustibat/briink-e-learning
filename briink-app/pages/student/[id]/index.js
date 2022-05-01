@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../../../styles/Home.module.css'
+import Layout from '../../../components/layout'
 import { useRouter } from 'next/router'
 import useSwr from 'swr'
 
@@ -16,24 +16,25 @@ export default function StudentIndex () {
   if (!data) return <div>Loading...</div>
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>Student homepage</title>
       </Head>
-      <h1 className={styles.title}>Welcome, {data.name}!</h1>
-      <p>What do you want to do?</p>
-      <ul>
-        <li>
-          <Link
-            href={{
-              pathname: '/student/[id]/submit-homework',
-              query: { id: data.id }
-            }}
-          >
-            <a>Submit a homework</a>
-          </Link>
-        </li>
-      </ul>
-    </>
+      <h1>Welcome, {data.name}!</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link
+              href={{
+                pathname: '/student/[id]/submit-homework',
+                query: { id: data.id }
+              }}
+            >
+              <a>Submit a homework</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </Layout>
   )
 }

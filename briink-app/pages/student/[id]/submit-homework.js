@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Layout from '../../../components/layout'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
@@ -7,10 +8,10 @@ export default function SubmitHomework (props) {
   const router = useRouter()
   const { id } = router.query
 
-  const [file, setFile] = useState(null);
-  const [createObjectURL, setCreateObjectURL] = useState(null);
+  const [file, setFile] = useState(null)
+  const [createObjectURL, setCreateObjectURL] = useState(null)
 
-  const changeClientFile = (event) => {
+  const changeClientFile = event => {
     if (event.target.files && event.target.files[0]) {
       const i = event.target.files[0]
       setFile(i)
@@ -33,31 +34,32 @@ export default function SubmitHomework (props) {
   }
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>Submit homework</title>
       </Head>
       <h1>Submit your homework here</h1>
 
       <h4>Select the homework in PDF</h4>
-      <input type="file" name="uploadFile" onChange={changeClientFile} />
-      <button
-        type='submit'
-        onClick={uploadFile}
-      >
+      <input type='file' name='uploadFile' onChange={changeClientFile} />
+      <button type='submit' onClick={uploadFile}>
         Upload
       </button>
 
-      <p>
-        <Link
-          href={{
-            pathname: '/student/[id]',
-            query: { id: id }
-          }}
-        >
-          <a>Back to student&apos;s home</a>
-        </Link>
-      </p>
-    </>
+      <nav>
+        <ul>
+          <li>
+            <Link
+              href={{
+                pathname: '/student/[id]',
+                query: { id: id }
+              }}
+            >
+              <a>Go back to my home</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </Layout>
   )
 }
