@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 
 const fetcher = url => fetch(url).then(res => res.json())
 
-export default function TeachersList () {
+export default function teachersList () {
   const { data, error } = useSwr('/api/teachers', fetcher)
 
   if (error) return <div>Failed to load the list of teachers</div>

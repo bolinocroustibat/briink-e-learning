@@ -6,7 +6,7 @@ import useSwr from 'swr'
 
 const fetcher = url => fetch(url).then(res => res.json())
 
-export default function StudentIndexPage () {
+export default function studentIndexPage () {
   const router = useRouter()
   const { id: studentId } = router.query
   const { data: student, studentEndpointError } = useSwr(

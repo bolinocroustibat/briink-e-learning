@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Layout from '../../../components/layout'
 import { useRouter } from 'next/router'
 
-export default function TeacherHomeworksCreatePage () {
+export default function teacherHomeworksCreatePage () {
   const router = useRouter()
   const { id: teacherId } = router.query
 

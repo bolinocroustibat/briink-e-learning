@@ -1,5 +1,5 @@
-import { homeworks } from '../../../data/homeworks.js'
-import { students } from '../../../data/students.js'
+import { homeworks } from '../../../../data/homeworks.js'
+import { students } from '../../../../data/students.js'
 
 export default function homeworksListHandler (req, res) {
   if (req.method === 'GET') {

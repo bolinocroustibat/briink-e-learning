@@ -7,7 +7,7 @@ import ScoresComponent from './components/scores'
 
 const fetcher = url => fetch(url).then(res => res.json())
 
-export default function TeacherHomeworksPage () {
+export default function teacherHomeworksPage () {
   const router = useRouter()
   const { id: teacherId } = router.query
   const { data: homeworks, error: homeworkEndpointError } = useSwr(

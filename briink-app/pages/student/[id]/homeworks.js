@@ -7,7 +7,7 @@ import SubmitHomeworkComponent from './components/submit'
 
 const fetcher = url => fetch(url).then(res => res.json())
 
-export default function StudentsHomeworksPage () {
+export default function studentsHomeworksPage () {
   const router = useRouter()
   const { id: studentId } = router.query
 

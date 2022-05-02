@@ -4,7 +4,7 @@ import Layout from '../../../../components/layout'
 const fetcherWithId = (url, id) =>
   fetch(`${url}?homeworkId=${id}`).then(res => res.json())
 
-export default function ScoresComponent (props) {
+export default function scoresComponent (props) {
   const endpoint = '/api/submitted-homeworks'
   const { data: submittedHomeworks, error } = useSwr(
     [endpoint, props.homeworkId],

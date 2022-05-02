@@ -1,4 +1,4 @@
-import { homeworks } from '../../../../data/homeworks.js'
+import { homeworks } from '../../../../../data/homeworks.js'
 
 export default function homeworkHandler (req, res) {
   const {

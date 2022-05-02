@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import Layout from '../../../../components/layout'
 
-export default function SubmitHomeworkComponent (props) {
+export default function submitHomeworkComponent (props) {
   const router = useRouter()
   const { id: studentId } = router.query
 

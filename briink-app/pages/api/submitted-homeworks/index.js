@@ -2,9 +2,9 @@ import formidable from 'formidable'
 import fs from 'fs'
 import mkpath from 'mkpath'
 
-import { homeworks } from '../../../data/homeworks.js'
-import { students } from '../../../data/students'
-import { submittedHomeworks } from '../../../data/submitted-homeworks'
+import { homeworks } from '../../../../data/homeworks.js'
+import { students } from '../../../../data/students'
+import { submittedHomeworks } from '../../../../data/submitted-homeworks'
 
 export const config = {
   api: {
@@ -34,8 +34,8 @@ const post = async (req, res) => {
 
 const saveFile = async (file, homeworkId, studentId) => {
   const data = fs.readFileSync(file.filepath)
-  // The uploaded PDF is save in the `./data/uploads/homework_${homeworkId}/student_${studentId}` directory.
-  const localDirPath = `./data/uploads/homework_${homeworkId}/student_${studentId}`
+  // The uploaded PDF is save in the `/data/uploads/homework_${homeworkId}/student_${studentId}` directory.
+  const localDirPath = `../data/uploads/homework_${homeworkId}/student_${studentId}`
   const localFilePath = `${localDirPath}/${file.originalFilename}`
   mkpath(localDirPath, function (err) {
     if (err) throw err
