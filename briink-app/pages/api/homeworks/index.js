@@ -26,12 +26,15 @@ export default function homeworksListHandler (req, res) {
       })
       res.status(200).json(studentHomeworks)
     }
-    res
-      .status(403)
-      .end('You must be a teacher or a student to view homeworks.')
+    res.status(403).end('You must be a teacher or a student to view homeworks.')
   } else if (req.method === 'POST') {
     const body = req.body
-    if (!body.title || !body.question || !body.teacherId || !body.scoringSystemId) {
+    if (
+      !body.title ||
+      !body.question ||
+      !body.teacherId ||
+      !body.scoringSystemId
+    ) {
       return res
         .status(400)
         .end('Homework title, question or related teacher not found.')

@@ -77,7 +77,7 @@ Some fake data for demo purposed is stored as JSON files in the `/data` folder, 
 
 ### Uploaded data
 
-Uploaded data from the users (in this case, submitted homework PDF files from the student) will be stored in the `/data/uploaded` folder, `/data/uploaded/homework_id/student_id/`.
+Uploaded data from the users (in this case, submitted homework PDF files from the student) will be stored in the `/data/uploads` folder, `/data/uploads/[homework_id]/[student_id]/`.
 
 In the future, uploaded user data should be stored in a cloud sercice, like Amazon S3, Google Cloud Storage, etc.
 

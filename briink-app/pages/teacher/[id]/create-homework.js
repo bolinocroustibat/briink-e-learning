@@ -13,6 +13,7 @@ export default function TeacherHomeworksCreatePage () {
     const data = {
       title: event.target.title.value,
       question: event.target.question.value,
+      scoringSystemId: event.target.scoringSystem.value,
       teacherId: teacherId
     }
     const endpoint = '/api/homeworks'
@@ -25,6 +26,7 @@ export default function TeacherHomeworksCreatePage () {
     }
     const response = await fetch(endpoint, options)
     if (response.status === 201) {
+      alert("New homework succesfully submitted!")
       router.push(`/teacher/${teacherId}`)
     }
   }
