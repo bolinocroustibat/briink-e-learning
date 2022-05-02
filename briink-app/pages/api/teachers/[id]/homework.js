@@ -10,6 +10,6 @@ export default function teacherHomeworkHandler (req, res) {
       break
     default:
       res.setHeader('Allow', ['POST', 'PUT'])
-      res.status(405).end(`Method ${method} Not Allowed`)
+      res.status(405).end(`Method ${method} not allowed.`)
   }
 }

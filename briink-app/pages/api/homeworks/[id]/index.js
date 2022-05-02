@@ -20,6 +20,6 @@ export default function homeworkHandler (req, res) {
       break
     default:
       res.setHeader('Allow', ['GET', 'PUT'])
-      res.status(405).end(`Method ${method} Not Allowed`)
+      res.status(405).end(`Method ${method} not allowed.`)
   }
 }

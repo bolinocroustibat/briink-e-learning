@@ -8,7 +8,7 @@ export default function TeacherHomeworksCreatePage () {
   const { id: teacherId } = router.query
 
   // Overrides the submit event on form submit
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault() // Stop the form from submitting and refreshing the page
     const data = {
       title: event.target.title.value,

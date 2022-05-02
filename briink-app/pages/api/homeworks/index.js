@@ -48,6 +48,6 @@ export default function homeworksListHandler (req, res) {
     // TODO: Create the homework in the database
     res.status(201).json(homework)
   } else {
-    res.status(405).end(`Method ${method} not allowed.`)
+    res.status(405).end(`Method ${req.method} not allowed.`)
   }
 }

@@ -68,6 +68,6 @@ export default function submittedHomeworksHandler (req, res) {
   } else if (req.method === 'POST') {
     post(req, res)
   } else {
-    res.status(405).end(`Method ${method} not allowed.`)
+    res.status(405).end(`Method ${req.method} not allowed.`)
   }
 }

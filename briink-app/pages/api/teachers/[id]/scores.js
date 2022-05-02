@@ -13,6 +13,6 @@ export default function teacherScoreHandler(req, res) {
       break
     default:
       res.setHeader('Allow', ['GET'])
-      res.status(405).end(`Method ${method} Not Allowed`)
+      res.status(405).end(`Method ${method} not allowed.`)
   }
 }
